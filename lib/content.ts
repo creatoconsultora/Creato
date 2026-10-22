@@ -10,7 +10,7 @@ export const SOCIAL_LINKS = {
 }
 
 export const CONTACT_DETAILS = {
-  phoneLabel: "+54 9 11 2487-0328",
+  phoneLabel: "+54 9 3512 10-4298",
   phoneRaw: "+5491124870328",
   hours: "Horarios: Lunes a Viernes de 8:00 a 19:00 hs",
   response: "Atención comercial: Respuesta ágil en el día",
