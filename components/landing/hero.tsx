@@ -42,7 +42,7 @@ export function Hero() {
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end px-6 pb-8 pt-28 sm:px-10 sm:pb-12 md:pb-14 md:pt-32">
         <div className="overflow-hidden">
           <p data-hero-reveal className="font-heading text-[clamp(2.75rem,6.5vw,5.5rem)] font-semibold leading-[0.88] tracking-[-0.08em] text-white">
-            creato<span className="text-orange">.</span>
+            Creato<span className="text-orange">.</span>
           </p>
         </div>
 

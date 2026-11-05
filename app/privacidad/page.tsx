@@ -3,7 +3,7 @@ import Link from "next/link"
 import { CONTACT_EMAIL, CONTACT_DETAILS } from "@/lib/content"
 
 export const metadata: Metadata = {
-  title: "Política de Privacidad | creato",
+  title: "Política de Privacidad | Creato",
   description:
     "Política de Privacidad y Protección de Datos Personales conforme a la Ley N° 25.326 de la República Argentina.",
   robots: {
@@ -22,7 +22,7 @@ export default function PrivacidadPage() {
             href="/"
             className="font-heading text-xl font-semibold tracking-tight text-[#171717]"
           >
-            creato<span className="text-[#e96d45]">.</span>
+            Creato<span className="text-[#e96d45]">.</span>
           </Link>
           <Link
             href="/"
@@ -53,7 +53,7 @@ export default function PrivacidadPage() {
               Artículo 1 · Marco Regulatorio y Responsable
             </h2>
             <p>
-              El presente documento establece los términos bajo los cuales <strong>creato</strong> (en adelante, el &ldquo;Responsable&rdquo; o &ldquo;creato&rdquo;), a través del sitio web <code>creato.com.ar</code> (el &ldquo;Sitio Web&rdquo;), efectúa el tratamiento de datos personales en el marco de sus actividades institucionales y de consultoría comercial.
+              El presente documento establece los términos bajo los cuales <strong>Creato</strong> (en adelante, el &ldquo;Responsable&rdquo; o &ldquo;Creato&rdquo;), a través del sitio web <code>creato.com.ar</code> (el &ldquo;Sitio Web&rdquo;), efectúa el tratamiento de datos personales en el marco de sus actividades institucionales y de consultoría comercial.
             </p>
             <p>
               El tratamiento de datos se ajusta en forma estricta a los preceptos de la <strong>Ley Nacional N° 25.326 de Protección de los Datos Personales</strong>, su Decreto Reglamentario N° 1558/2001 y las disposiciones concordantes dictadas por la <strong>Agencia de Acceso a la Información Pública (AAIP)</strong>.

@@ -59,7 +59,7 @@ export function OneTeam() {
 
           <div data-team-reveal className="relative h-64 sm:h-80 md:h-96 w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl bg-graphite">
             <ImageWithSkeleton
-              src="/images/equipo.png"
+              src="/images/unsoloequipo.jpeg"
               alt="Equipo de Creato en reunión de coordinación de proyectos"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
@@ -68,7 +68,7 @@ export function OneTeam() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
             <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-xs text-white/80">
-              <span className="font-heading font-semibold text-white">creato<span className="text-orange">.</span></span>
+              <span className="font-heading font-semibold text-white">Creato<span className="text-orange">.</span></span>
               <span>Coordinación y seguimiento con un responsable único</span>
             </div>
           </div>

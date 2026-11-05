@@ -5,7 +5,7 @@ import '@fontsource/poppins/600.css'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'creato | Soluciones para tu negocio. Un solo presupuesto.',
+  title: 'Creato | Soluciones para tu negocio. Un solo presupuesto.',
   description:
     'Arquitectura comercial, identidad visual, tecnología y administración bajo un único presupuesto y un solo equipo.',
   icons: {
