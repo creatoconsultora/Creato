@@ -1,17 +1,10 @@
 export const COMPANY_NAME = "creato"
 
-export const WHATSAPP_URL =
-  "https://wa.me/5491124870328?text=Hola%2C%20quiero%20presupuestar%20con%20ustedes"
-export const SCHEDULE_URL = "https://calendly.com/creatoconsultora/30min"
-export const CONTACT_EMAIL = "creatoconsultora@gmail.com"
-export const SOCIAL_LINKS = {
-  instagram: "https://instagram.com",
-  linkedin: "https://linkedin.com",
-}
+
 
 export const CONTACT_DETAILS = {
-  phoneLabel: "+54 9 11 2487-0328",
-  phoneRaw: "+5491124870328",
+  phoneLabel: "+54 9 11 6858-7718",
+  phoneRaw: "+5491168587718",
   hours: "Horarios: Lunes a Viernes de 8:00 a 19:00 hs",
   response: "Atención comercial: Respuesta en el día",
   coverage: "Proyectos y obras: Cobertura presencial en Córdoba, Rosario y Buenos Aires",
@@ -19,6 +12,14 @@ export const CONTACT_DETAILS = {
   administration: "Pliegos y administración",
 }
 
+export const WHATSAPP_URL = `https://wa.me/${CONTACT_DETAILS.phoneRaw}?text=Hola%2C%20quiero%20presupuestar%20con%20ustedes`
+export const SCHEDULE_URL = "https://calendly.com/creatoconsultora/30min"
+export const CONTACT_EMAIL = "creatoconsultora@gmail.com"
+export const SOCIAL_LINKS = {
+  instagram: "https://instagram.com",
+  linkedin: "https://linkedin.com",
+
+} 
 export const HERO = {
   title: "Muchas soluciones, un solo contacto.",
   description:
@@ -238,17 +239,17 @@ export const CASES: CaseStudy[] = [
     ],
     images: [
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ferredesk-1-ventas-yLGpRR9jKexmPUqETvZPlnTIPut9C1.jpg",
+        src: "/images/casos/ferredesk-ventas.jpg",
         alt: "Pantalla de presupuestos y ventas de FerreDesk",
         kind: "screen",
       },
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ferredesk-2-stock-qPHrtJleyNRRLsBxVvipNpUyB4q28K.jpg",
+        src: "/images/casos/ferredesk-stock.jpg",
         alt: "Listado de productos y stock en FerreDesk",
         kind: "screen",
       },
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ferredesk-3-tesoreria-njuFGWh14GZndhI3WabiWjIZYJPIOT.jpg",
+        src: "/images/casos/ferredesk-tesoreria.jpg",
         alt: "Panel de tesorería con control de fondos",
         kind: "screen",
       },
@@ -287,12 +288,12 @@ export const CASES: CaseStudy[] = [
     ],
     images: [
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/estetica-1-reserva-XEQVGy3gC71bEa03r0p6oaoYdo3DIF.jpg",
+        src: "/images/casos/estetica-reserva.jpg",
         alt: "Paso de elección de fecha y horario en la agenda",
         kind: "screen",
       },
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/estetica-2-confirmacion-q0ghX6468CoNnsEdkr4bq3s9u8KwBT.jpg",
+        src: "/images/casos/estetica-confirmacion.jpg",
         alt: "Pantalla de turno confirmado",
         kind: "screen",
       },
@@ -332,12 +333,12 @@ export const CASES: CaseStudy[] = [
     ],
     images: [
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/concesionaria-1-marketplace-kF7qCiJc1Hgmg7F6Ks6T5UU57svTpB.jpg",
+        src: "/images/casos/marketplace-autos.jpg",
         alt: "Extensión completando automáticamente un aviso de vehículo",
         kind: "screen",
       },
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/concesionaria-2-catalogo-6mYRr2dDybdKGmKvc2QNBlZoUBuihq.jpg",
+        src: "/images/casos/catalogo-autos.jpg",
         alt: "Catálogo de vehículos pendientes de publicar",
         kind: "screen",
       },
