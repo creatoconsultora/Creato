@@ -11,17 +11,17 @@ export const metadata: Metadata = {
   generator: 'v0.app',
   icons: {
     icon: [
-      { url: '/favicon.ico?v=3' },
-      { url: '/creato-brujula-base.ico?v=3' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico' },
     ],
-    shortcut: '/favicon.ico?v=3',
-    apple: '/favicon.ico?v=3',
+    shortcut: '/icon.svg',
+    apple: '/apple-icon.png',
   },
 }
 
 export const viewport: Viewport = {
   colorScheme: 'light',
-  themeColor: '#14284B',
+  themeColor: '#ff7a00',
 }
 
 export default function RootLayout({
