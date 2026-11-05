@@ -59,10 +59,6 @@ export function Hero() {
           </div>
         </div>
       </div>
-
-      <a href="#pilares" className="absolute bottom-6 right-6 z-10 hidden items-center gap-2 text-xs font-semibold uppercase tracking-[.18em] text-white/60 transition hover:text-white md:flex">
-        <span className="grid size-9 place-items-center rounded-full border border-white/25">↓</span> Explora
-      </a>
     </header>
   )
 }

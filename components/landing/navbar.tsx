@@ -46,7 +46,7 @@ export function Navbar() {
             href="#contacto"
             className="inline-flex items-center gap-2 rounded-full bg-orange px-3.5 py-2 text-xs font-semibold text-white shadow-md shadow-orange/20 transition hover:bg-[#ff7d36] hover:scale-[1.03] sm:px-4"
           >
-            Hablemos <ArrowDownRight className="size-3.5" aria-hidden="true" />
+            Contacto <ArrowDownRight className="size-3.5" aria-hidden="true" />
           </a>
           <a
             href="#pilares"

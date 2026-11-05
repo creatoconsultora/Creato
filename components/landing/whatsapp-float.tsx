@@ -94,7 +94,7 @@ export function WhatsAppFloat() {
           href={SCHEDULE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Agendar asesoría o videollamada (se abre en una pestaña nueva)"
+          aria-label="Agendar llamada (se abre en una pestaña nueva)"
           className="flex size-7 items-center justify-center rounded-full text-white/80 transition-colors hover:text-white active:scale-95"
         >
           <CalendarDays className="size-4 text-orange" aria-hidden="true" />

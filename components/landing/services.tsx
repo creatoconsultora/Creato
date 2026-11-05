@@ -127,7 +127,7 @@ export function CaseModal({
   if (!item) return null
 
   const titleId = `${item.id}-case-modal-title`
-  const message = encodeURIComponent(`Hola, vi el caso "${item.shortTitle}" y quiero algo parecido.`)
+  const message = encodeURIComponent(`Hola, vi el caso "${item.shortTitle}" y quiero consultar por un proyecto similar.`)
   const activeImage = item.images[activeImgIndex]
 
   return (
@@ -242,7 +242,7 @@ export function CaseModal({
             {/* "Lo que hicimos específicamente" - exclusively here in the modal */}
             <div className="border-t border-navy/10 pt-4">
               <p className="mb-3 text-xs font-bold tracking-wider text-navy/70 uppercase">
-                Lo que hicimos específicamente:
+                Tareas realizadas:
               </p>
               <ul className="flex flex-col gap-2.5">
                 {item.work.map((task) => (
@@ -265,7 +265,7 @@ export function CaseModal({
                 className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-orange px-4 py-2.5 font-heading text-xs md:text-sm font-semibold text-white shadow-md shadow-orange/20 transition hover:bg-[#ff7d36]"
               >
                 <MessageCircle className="size-4 shrink-0" aria-hidden="true" />
-                <span>Quiero algo así para mi negocio</span>
+                <span>Contactar por WhatsApp</span>
               </a>
               <a
                 href={SCHEDULE_URL}
@@ -309,7 +309,7 @@ function CaseCard({
           onClick()
         }
       }}
-      aria-label={`Ver ficha de ${item.shortTitle}`}
+      aria-label={`Ver detalle de ${item.shortTitle}`}
       className="case-card group relative flex shrink-0 cursor-pointer select-none flex-col justify-start rounded-2xl border border-white/10 bg-graphite text-white outline-none transition-all duration-300 hover:border-orange/60"
     >
       <div className="case-cover pointer-events-none relative shrink-0 overflow-hidden rounded-t-2xl">
@@ -545,10 +545,10 @@ export function Services() {
               
             </p>
             <h2 id="casos-title" className="max-w-3xl font-heading text-3xl sm:text-4xl md:text-5xl leading-tight tracking-[-.05em]">
-              Negocios que escalaron con creato
+              Casos de trabajo
             </h2>
             <p className="mt-2 max-w-xl text-xs sm:text-sm md:text-base leading-relaxed text-orange">
-              Proyectos reales en las cinco áreas: del diseño de un local a un sistema de gestión.
+              Proyectos en cinco disciplinas: arquitectura comercial, diseño, tecnología, eventos y administración.
             </p>
           </div>
         </header>
@@ -588,14 +588,14 @@ export function Services() {
 
         {/* Bottom Banner */}
         <div className="mt-8 flex shrink-0 items-center justify-between gap-4 border-t border-navy/15 pt-4">
-          <p className="font-heading text-base md:text-lg">¿Armaste algo parecido?</p>
+          <p className="font-heading text-base md:text-lg">¿Tenés un proyecto en mente?</p>
           <a
             className="rounded-full bg-orange px-4 py-2.5 text-xs sm:text-sm font-semibold text-white transition hover:bg-orange/85"
             href={`${WHATSAPP_URL.split("?text=")[0]}?text=${encodeURIComponent(
-              "Hola, quiero contarte sobre mi proyecto."
+              "Hola, quiero consultar por un proyecto."
             )}`}
           >
-            Contanos tu proyecto
+            Contactar por WhatsApp
           </a>
         </div>
       </div>

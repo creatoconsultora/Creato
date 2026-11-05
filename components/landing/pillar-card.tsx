@@ -5,6 +5,7 @@ import { CalendarDays, MessageCircle, X } from "lucide-react"
 import { SCHEDULE_URL, WHATSAPP_URL, type Pillar } from "@/lib/content"
 import { cn } from "@/lib/utils"
 import { ImageWithSkeleton } from "@/components/ui/image-with-skeleton"
+
 export function PillarModal({
   pillar,
   open,
@@ -75,7 +76,6 @@ export function PillarModal({
           {/* Pinned Fixed Header */}
           <div className="z-10 flex shrink-0 items-start justify-between gap-4 border-b border-navy/10 bg-white px-5 py-4 md:px-8 md:py-5">
             <div className="flex items-center gap-3 min-w-0">
-              {/* Mobile-only compact thumbnail so the screen starts with context, not a giant blocking photo */}
               <div className="relative size-12 shrink-0 overflow-hidden rounded-xl border border-navy/10 md:hidden bg-mist">
                 <ImageWithSkeleton
                   src={pillar.image}
@@ -108,7 +108,7 @@ export function PillarModal({
             </button>
           </div>
 
-          {/* Scrollable Content: ONLY the description and services scroll */}
+          {/* Scrollable Content */}
           <div className="flex-1 space-y-4 overflow-y-auto px-5 py-4 overscroll-contain md:px-8 md:py-6 [-ms-overflow-style:none] [scrollbar-width:thin]">
             <div>
               <p className="font-heading text-sm font-semibold leading-relaxed text-navy md:text-base">
@@ -121,7 +121,7 @@ export function PillarModal({
 
             <div className="border-t border-navy/10 pt-3">
               <p className="mb-2.5 text-xs font-bold tracking-wider text-navy/70 uppercase">
-                Servicios y alcance incluidos:
+                Servicios incluidos:
               </p>
               <ul className="flex flex-col gap-2">
                 {pillar.services.map((service) => (
@@ -140,7 +140,7 @@ export function PillarModal({
             </div>
           </div>
 
-          {/* Pinned Fixed Footer: WhatsApp & Calendly always visible */}
+          {/* Pinned Fixed Footer */}
           <div className="z-10 shrink-0 border-t border-navy/10 bg-mist/70 p-3.5 backdrop-blur-sm md:px-8 md:py-4">
             <div className="flex flex-col sm:flex-row gap-2.5 w-full">
               <a
@@ -150,7 +150,7 @@ export function PillarModal({
                 className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-orange px-4 py-2.5 font-heading text-xs md:text-sm font-semibold text-white shadow-md shadow-orange/20 transition hover:bg-[#ff7d36]"
               >
                 <MessageCircle className="size-4 shrink-0" aria-hidden="true" />
-                <span>Hablemos por WhatsApp</span>
+                <span>Contactar por WhatsApp</span>
               </a>
               <a
                 href={SCHEDULE_URL}
@@ -159,7 +159,7 @@ export function PillarModal({
                 className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-navy/30 bg-white px-4 py-2.5 font-heading text-xs md:text-sm font-semibold text-navy transition hover:bg-navy hover:text-white"
               >
                 <CalendarDays className="size-4 shrink-0" aria-hidden="true" />
-                <span>Agendar asesoría</span>
+                <span>Agendar llamada</span>
               </a>
             </div>
           </div>
@@ -215,7 +215,6 @@ export function PillarCard({
         )}
         onClick={openDialog}
         onMouseDown={(event) => {
-          // Prevent mouse click from giving persistent DOM focus to the card
           event.preventDefault()
         }}
         onKeyDown={(event) => {
@@ -245,7 +244,6 @@ export function PillarCard({
         />
 
         <div className="relative flex h-full flex-col justify-end p-6 md:p-8">
-          {/* Expands ONLY on hover */}
           <div className="grid grid-rows-[0fr] opacity-0 transition-[grid-template-rows,opacity,margin] duration-500 group-hover:mb-4 group-hover:grid-rows-[1fr] group-hover:opacity-100">
             <div className="min-h-0 overflow-hidden">
               <p className="mb-4 max-w-sm text-sm leading-relaxed text-white/85">

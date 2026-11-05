@@ -36,7 +36,6 @@ export function OneTeam() {
       />
 
       <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-center">
-        {/* Bloque: Un solo equipo */}
         <div className="grid items-center gap-8 md:grid-cols-2 lg:gap-14">
           <div data-team-reveal>
             <h2
@@ -61,7 +60,7 @@ export function OneTeam() {
           <div data-team-reveal className="relative h-64 sm:h-80 md:h-96 w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl bg-graphite">
             <ImageWithSkeleton
               src="/images/equipo.png"
-              alt="Equipo de Creato reunido trabajando en proyectos integrales"
+              alt="Equipo de Creato en reunión de coordinación de proyectos"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover transition-transform duration-700 hover:scale-105"
@@ -70,7 +69,7 @@ export function OneTeam() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
             <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-xs text-white/80">
               <span className="font-heading font-semibold text-white">creato<span className="text-orange">.</span></span>
-              <span>Visión unificada y coordinación de principio a fin</span>
+              <span>Coordinación y seguimiento con un responsable único</span>
             </div>
           </div>
         </div>
