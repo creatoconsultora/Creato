@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   title: 'creato | Soluciones para tu negocio. Un solo presupuesto.',
   description:
     'Arquitectura comercial, identidad visual, tecnología y administración bajo un único presupuesto y un solo equipo.',
-  generator: 'v0.app',
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
