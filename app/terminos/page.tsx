@@ -3,7 +3,7 @@ import Link from "next/link"
 import { CONTACT_EMAIL, CONTACT_DETAILS } from "@/lib/content"
 
 export const metadata: Metadata = {
-  title: "Términos y Condiciones | creato",
+  title: "Términos y Condiciones | Creato",
   description:
     "Términos y Condiciones generales de uso del sitio web creato.com.ar conforme a las leyes de la República Argentina.",
   robots: {
@@ -22,7 +22,7 @@ export default function TerminosPage() {
             href="/"
             className="font-heading text-xl font-semibold tracking-tight text-[#171717]"
           >
-            creato<span className="text-[#e96d45]">.</span>
+            Creato<span className="text-[#e96d45]">.</span>
           </Link>
           <Link
             href="/"
@@ -53,7 +53,7 @@ export default function TerminosPage() {
               Cláusula Primera · Ámbito de Aplicación y Aceptación
             </h2>
             <p>
-              Los presentes Términos y Condiciones regulan el acceso, navegación y uso del sitio web <code>creato.com.ar</code> (en adelante, el &ldquo;Sitio Web&rdquo;), administrado y operado por <strong>creato</strong> (en adelante, el &ldquo;Titular&rdquo;).
+              Los presentes Términos y Condiciones regulan el acceso, navegación y uso del sitio web <code>creato.com.ar</code> (en adelante, el &ldquo;Sitio Web&rdquo;), administrado y operado por <strong>Creato</strong> (en adelante, el &ldquo;Titular&rdquo;).
             </p>
             <p>
               Toda persona humana o jurídica que acceda, navegue o haga uso de las vías de comunicación consignadas en el Sitio Web adquiere la condición de &ldquo;Usuario&rdquo;, quedando sometida de pleno derecho y sin reserva alguna a las estipulaciones aquí contenidas. Quien no aceptare estas disposiciones deberá abstenerse de operar en el Sitio Web.
@@ -80,7 +80,7 @@ export default function TerminosPage() {
               <strong>3.1. Ausencia de oferta vinculante:</strong> De conformidad con el artículo 972 del Código Civil y Comercial de la Nación, la información, descripción de pilares, casos de éxito, metodologías o referencias expuestas en el Sitio Web poseen naturaleza meramente informativa y de invitación a entablar tratativas preliminares, no revistiendo carácter de oferta contractual irrevocable ni vinculante.
             </p>
             <p>
-              <strong>3.2. Perfeccionamiento de los contratos:</strong> La contratación de los servicios de creato queda formalizada únicamente tras la elaboración de una propuesta técnica y económica individualizada por escrito, y la ulterior aceptación expresa, suscripción de orden de trabajo, pliego de condiciones o contrato particular debidamente perfeccionado entre las partes.
+              <strong>3.2. Perfeccionamiento de los contratos:</strong> La contratación de los servicios de Creato queda formalizada únicamente tras la elaboración de una propuesta técnica y económica individualizada por escrito, y la ulterior aceptación expresa, suscripción de orden de trabajo, pliego de condiciones o contrato particular debidamente perfeccionado entre las partes.
             </p>
             <p>
               <strong>3.3. Vigencia de presupuestos:</strong> Las cotizaciones remitidas formalmente por correo electrónico o instrumento escrito tendrán la vigencia temporal taxativamente indicada en el documento de propuesta, sujeta a disponibilidad de insumos, variaciones de plaza y cronograma técnico convenido.

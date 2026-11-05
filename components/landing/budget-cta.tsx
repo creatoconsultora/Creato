@@ -141,7 +141,7 @@ export function BudgetCta() {
             {/* Col 1: Logo & Redes Sociales */}
             <div className="lg:col-span-2">
               <a href="#inicio" className="font-heading text-3xl font-semibold tracking-[-0.04em] text-white">
-                creato<span className="text-orange">.</span>
+                Creato<span className="text-orange">.</span>
               </a>
               <div className="mt-5 flex items-center gap-3 text-white/75">
                 <a
@@ -310,7 +310,7 @@ export function BudgetCta() {
               </Link>
             </div>
             <p className="font-heading text-xs font-semibold tracking-wider uppercase text-white/70">
-              Muchas soluciones, un solo contacto.
+              Muchas soluciones en un solo contacto.
             </p>
           </div>
         </div>

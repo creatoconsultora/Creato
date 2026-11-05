@@ -26,7 +26,7 @@ export function Navbar() {
           href="#inicio"
           className="font-heading text-xl font-semibold tracking-[-0.07em] text-white transition hover:text-orange"
         >
-          creato<span className="text-orange">.</span>
+          Creato<span className="text-orange">.</span>
         </a>
 
         <div className="hidden items-center gap-6 lg:flex">

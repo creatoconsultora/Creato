@@ -1,4 +1,4 @@
-export const COMPANY_NAME = "creato"
+export const COMPANY_NAME = "Creato"
 
 
 
@@ -21,7 +21,7 @@ export const SOCIAL_LINKS = {
 
 } 
 export const HERO = {
-  title: "Muchas soluciones, un solo contacto.",
+  title: "Muchas soluciones en un solo contacto.",
   description:
     "Coordinamos arquitectura comercial, diseño, tecnología, eventos y administración bajo un solo presupuesto y un único responsable de proyecto.",
   navigation: [
