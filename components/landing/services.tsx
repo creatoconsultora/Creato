@@ -8,6 +8,7 @@ import {
   IceCreamCone,
   MessageCircle,
   X,
+  ArrowUpRight,
 } from "lucide-react"
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react"
 import { CASES, PILLARS, SCHEDULE_URL, WHATSAPP_URL, type CaseStudy } from "@/lib/content"
@@ -42,12 +43,12 @@ function CaseCover({ item, className }: { item: CaseStudy; className?: string })
     return (
       <div
         className={cn(
-          "flex h-full min-h-0 flex-col justify-end bg-[radial-gradient(#ffffff12_1px,transparent_1px)] [background-size:16px_16px] bg-graphite p-5",
+          "flex h-full min-h-0 flex-col justify-end bg-[#16181d] p-5",
           className
         )}
       >
-        <Icon className="mb-auto size-12 text-orange/90" strokeWidth={1.2} aria-hidden="true" />
-        <p className="font-heading text-lg font-semibold text-white">{item.shortTitle}</p>
+        <Icon className="mb-auto size-10 text-orange" strokeWidth={1.5} aria-hidden="true" />
+        <p className="font-heading text-lg font-bold text-white">{item.shortTitle}</p>
       </div>
     )
   }
@@ -55,7 +56,7 @@ function CaseCover({ item, className }: { item: CaseStudy; className?: string })
   return (
     <div
       className={cn(
-        "relative h-full min-h-0 shrink-0 overflow-hidden bg-graphite transition-all duration-700",
+        "relative h-full min-h-0 shrink-0 overflow-hidden bg-[#16181d] transition-all duration-700",
         className
       )}
     >
@@ -72,14 +73,14 @@ function CaseCover({ item, className }: { item: CaseStudy; className?: string })
         )}
         skeletonClassName="bg-white/10"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
       {image.label && (
-        <span className="absolute left-3 top-3 z-10 rounded-full bg-orange px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white shadow-md">
+        <span className="absolute left-3 top-3 z-10 rounded bg-orange px-2 py-0.5 font-mono text-[9px] font-black uppercase tracking-wider text-white shadow-md">
           {image.label}
         </span>
       )}
       {item.images.length > 1 && (
-        <span className="absolute right-3 top-3 z-10 rounded-full bg-black/60 px-2 py-0.5 font-mono text-[10px] text-white/80 backdrop-blur-sm">
+        <span className="absolute right-3 top-3 z-10 rounded bg-black/70 px-2 py-0.5 font-mono text-[10px] text-white/90 backdrop-blur-sm">
           {active + 1}/{item.images.length}
         </span>
       )}
@@ -138,14 +139,14 @@ export function CaseModal({
       onClick={(e) => {
         if (e.target === dialogRef.current) onClose()
       }}
-      className="m-auto h-[90dvh] max-h-[720px] w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] max-w-4xl overflow-hidden rounded-2xl bg-white p-0 text-navy shadow-2xl backdrop:bg-black/70 outline-none"
+      className="m-auto h-[90dvh] max-h-[720px] w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] max-w-4xl overflow-hidden rounded-2xl bg-white p-0 text-[#0e0f11] shadow-2xl backdrop:bg-black/70 outline-none"
     >
       <div className="flex h-full w-full flex-col md:flex-row overflow-hidden">
         {/* Left Column (Desktop) / Top Column (Mobile): Gallery */}
-        <div className="relative h-60 shrink-0 overflow-hidden bg-navy md:h-full md:w-5/12 lg:w-1/2 flex flex-col justify-between">
+        <div className="relative h-60 shrink-0 overflow-hidden bg-[#0e0f11] md:h-full md:w-5/12 lg:w-1/2 flex flex-col justify-between">
           {activeImage ? (
             <div
-              className={`relative flex-1 w-full bg-graphite overflow-hidden ${
+              className={`relative flex-1 w-full bg-[#16181d] overflow-hidden ${
                 activeImage.kind === "photo" ? "" : "bg-white/95"
               }`}
             >
@@ -160,29 +161,29 @@ export function CaseModal({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent md:block hidden pointer-events-none" />
               {activeImage.label && (
-                <span className="absolute left-4 top-4 z-10 rounded-full bg-orange px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white shadow-md">
+                <span className="absolute left-4 top-4 z-10 rounded bg-orange px-2.5 py-1 font-mono text-[10px] font-black uppercase tracking-wider text-white shadow-md">
                   {activeImage.label}
                 </span>
               )}
             </div>
           ) : (
-            <div className="flex flex-1 flex-col items-center justify-center p-8 text-center bg-graphite text-white">
+            <div className="flex flex-1 flex-col items-center justify-center p-8 text-center bg-[#16181d] text-white">
               <Building2 className="size-16 text-orange/90 mb-3" strokeWidth={1.2} />
-              <p className="font-heading text-lg">{item.shortTitle}</p>
+              <p className="font-heading text-lg font-bold">{item.shortTitle}</p>
               <p className="text-xs text-white/60 mt-1">Proyecto en ejecución sin imágenes públicas</p>
             </div>
           )}
 
           {/* Gallery navigation tabs/dots if multiple images */}
           {item.images.length > 1 && (
-            <div className="z-10 flex flex-wrap items-center justify-center gap-2 bg-black/65 p-3 backdrop-blur-sm">
+            <div className="z-10 flex flex-wrap items-center justify-center gap-2 bg-black/75 p-3 backdrop-blur-sm">
               {item.images.map((img, idx) => (
                 <button
                   key={img.src}
                   type="button"
                   onClick={() => setActiveImgIndex(idx)}
                   className={cn(
-                    "rounded-md border px-2.5 py-1 text-xs font-medium transition",
+                    "rounded-md border px-2.5 py-1 text-xs font-semibold transition active:scale-95",
                     idx === activeImgIndex
                       ? "border-orange bg-orange text-white"
                       : "border-white/20 bg-white/10 text-white/80 hover:bg-white/25"
@@ -197,14 +198,14 @@ export function CaseModal({
 
         {/* Right Column: Information, Full Deliverables, Fixed Footer */}
         <div className="flex h-full min-w-0 flex-1 flex-col overflow-hidden bg-white">
-          {/* Header - TITLE NEVER CUTS OFF */}
-          <div className="z-10 flex shrink-0 items-start justify-between gap-4 border-b border-navy/10 bg-white px-5 py-4 md:px-8 md:py-5">
+          {/* Header */}
+          <div className="z-10 flex shrink-0 items-start justify-between gap-4 border-b border-black/10 bg-white px-5 py-4 md:px-8 md:py-5">
             <div className="flex-1 min-w-0 pr-2">
               <div className="mb-2 flex flex-wrap gap-1.5">
                 {item.areas.map((area) => (
                   <span
                     key={area}
-                    className="rounded-full bg-navy/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-navy uppercase"
+                    className="rounded bg-black/5 px-2 py-0.5 font-mono text-[10px] font-bold text-black/70 uppercase"
                   >
                     {PILLARS.find((p) => p.id === area)?.name.split(" ")[0]}
                   </span>
@@ -212,7 +213,7 @@ export function CaseModal({
               </div>
               <h2
                 id={titleId}
-                className="font-heading text-lg sm:text-xl md:text-2xl font-bold leading-snug text-navy text-balance"
+                className="font-heading text-lg sm:text-xl md:text-2xl font-black leading-snug text-[#0e0f11] text-balance"
               >
                 {item.shortTitle}
               </h2>
@@ -221,7 +222,7 @@ export function CaseModal({
               type="button"
               onClick={onClose}
               aria-label="Cerrar modal"
-              className="flex size-9 shrink-0 items-center justify-center rounded-full border border-navy/20 bg-mist/60 text-navy transition-colors hover:bg-navy hover:text-white"
+              className="flex size-9 shrink-0 items-center justify-center rounded-full border border-black/15 bg-black/5 text-[#0e0f11] transition-colors hover:bg-[#0e0f11] hover:text-white active:scale-95"
             >
               <X className="size-4" aria-hidden="true" />
             </button>
@@ -230,23 +231,22 @@ export function CaseModal({
           {/* Scrollable Content */}
           <div className="flex-1 space-y-5 overflow-y-auto px-5 py-4 overscroll-contain md:px-8 md:py-6 [-ms-overflow-style:none] [scrollbar-width:thin]">
             <div>
-              <h3 className="font-heading text-sm md:text-base font-semibold text-navy">
+              <h3 className="font-heading text-sm md:text-base font-bold text-[#0e0f11]">
                 {item.title}
               </h3>
-              <p className="mt-2 text-xs md:text-sm leading-relaxed text-muted-foreground">
-                <strong className="text-navy font-semibold">El proyecto: </strong>
+              <p className="mt-2 text-xs md:text-sm leading-relaxed text-[#5a5c62]">
+                <strong className="text-[#0e0f11] font-semibold">El proyecto: </strong>
                 {item.project}
               </p>
             </div>
 
-            {/* "Lo que hicimos específicamente" - exclusively here in the modal */}
-            <div className="border-t border-navy/10 pt-4">
-              <p className="mb-3 text-xs font-bold tracking-wider text-navy/70 uppercase">
-                Lo que hicimos específicamente:
+            <div className="border-t border-black/10 pt-4">
+              <p className="mb-3 font-mono text-[11px] font-bold tracking-wider text-black/70 uppercase">
+                ALCANCE Y ENTREGABLES REALES:
               </p>
               <ul className="flex flex-col gap-2.5">
                 {item.work.map((task) => (
-                  <li key={task} className="flex items-start gap-2.5 text-xs md:text-sm text-navy/85">
+                  <li key={task} className="flex items-start gap-2.5 text-xs md:text-sm text-[#0e0f11]/85">
                     <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-orange" aria-hidden="true" />
                     <span className="leading-relaxed">{task}</span>
                   </li>
@@ -256,13 +256,13 @@ export function CaseModal({
           </div>
 
           {/* Footer CTA */}
-          <div className="z-10 shrink-0 border-t border-navy/10 bg-mist/70 p-3.5 backdrop-blur-sm md:px-8 md:py-4">
+          <div className="z-10 shrink-0 border-t border-black/10 bg-[#faf9f6] p-3.5 md:px-8 md:py-4">
             <div className="flex flex-col sm:flex-row gap-2.5 w-full">
               <a
                 href={`${WHATSAPP_URL.split("?text=")[0]}?text=${message}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-orange px-4 py-2.5 font-heading text-xs md:text-sm font-semibold text-white shadow-md shadow-orange/20 transition hover:bg-[#ff7d36]"
+                className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-orange px-4 py-2.5 font-heading text-xs md:text-sm font-bold text-white uppercase shadow-md shadow-orange/20 transition-transform hover:bg-[#ff7a45] active:scale-95"
               >
                 <MessageCircle className="size-4 shrink-0" aria-hidden="true" />
                 <span>Quiero algo así para mi negocio</span>
@@ -271,7 +271,7 @@ export function CaseModal({
                 href={SCHEDULE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-navy/25 bg-white px-4 py-2.5 font-heading text-xs md:text-sm font-semibold text-navy transition hover:bg-navy hover:text-white"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-black/20 bg-white px-4 py-2.5 font-heading text-xs md:text-sm font-bold text-[#0e0f11] uppercase transition hover:bg-[#0e0f11] hover:text-white active:scale-95"
               >
                 <CalendarDays className="size-4 shrink-0" aria-hidden="true" />
                 <span className="hidden sm:inline">Agendar llamada</span>
@@ -310,7 +310,7 @@ function CaseCard({
         }
       }}
       aria-label={`Ver ficha de ${item.shortTitle}`}
-      className="case-card group relative flex shrink-0 cursor-pointer select-none flex-col justify-start rounded-2xl border border-white/10 bg-graphite text-white outline-none transition-all duration-300 hover:border-orange/60"
+      className="case-card group relative flex shrink-0 cursor-pointer select-none flex-col justify-start rounded-2xl border border-white/10 bg-[#16181d] text-white outline-none transition-all duration-300 hover:border-orange/60"
     >
       <div className="case-cover pointer-events-none relative shrink-0 overflow-hidden rounded-t-2xl">
         <CaseCover item={item} />
@@ -321,20 +321,25 @@ function CaseCard({
           {item.areas.map((area) => (
             <span
               key={area}
-              className="rounded-full bg-white/10 px-2 py-0.5 font-mono text-[10px] text-white/80"
+              className="rounded bg-white/10 px-2 py-0.5 font-mono text-[9px] font-bold text-white/80 uppercase"
             >
               {PILLARS.find((pillar) => pillar.id === area)?.name.split(" ")[0]}
             </span>
           ))}
         </div>
 
-        <h3 className="font-heading text-base sm:text-lg font-semibold leading-snug text-white group-hover:text-orange transition-colors">
+        <h3 className="font-heading text-base sm:text-lg font-bold leading-snug text-white group-hover:text-orange transition-colors">
           {item.shortTitle}
         </h3>
 
         <p className="mt-2 text-xs sm:text-sm leading-relaxed text-white/70 line-clamp-3">
           {item.project}
         </p>
+
+        <div className="mt-auto pt-3 flex items-center justify-between text-xs font-mono text-orange">
+          <span>Ver caso completo</span>
+          <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </div>
       </div>
     </article>
   )
@@ -370,7 +375,6 @@ function MobileServices({ onSelect }: { onSelect: (item: CaseStudy) => void }) {
 
   return (
     <div className="flex flex-col gap-3 lg:hidden">
-      {/* Native horizontal snap slider with peek */}
       <div
         ref={scrollRef}
         onScroll={onScroll}
@@ -381,8 +385,7 @@ function MobileServices({ onSelect }: { onSelect: (item: CaseStudy) => void }) {
         ))}
       </div>
 
-      {/* Navigation cues: Dots & Slide counter */}
-      <div className="flex items-center justify-between px-2 pt-1">
+      <div className="flex items-center justify-between px-2 pt-1 font-mono">
         <div className="flex items-center gap-1.5">
           {CASES.map((_, idx) => (
             <button
@@ -392,12 +395,12 @@ function MobileServices({ onSelect }: { onSelect: (item: CaseStudy) => void }) {
               aria-label={`Ir al caso ${idx + 1}`}
               className={cn(
                 "h-1.5 rounded-full transition-all duration-300",
-                idx === activeIndex ? "w-5 bg-orange" : "w-1.5 bg-navy/20"
+                idx === activeIndex ? "w-5 bg-orange" : "w-1.5 bg-black/20"
               )}
             />
           ))}
         </div>
-        <span className="text-[11px] font-medium text-navy/60">
+        <span className="text-[11px] font-bold text-black/60">
           ({activeIndex + 1}/{CASES.length})
         </span>
       </div>
@@ -430,7 +433,6 @@ export function Services() {
 
     let frame = 0
     let lastTime = performance.now()
-    const BASE_SPEED = 0.08
 
     const measure = () => {
       const track = trackRef.current
@@ -451,7 +453,6 @@ export function Services() {
       lastTime = time
       const loopWidth = loopWidthRef.current
 
-      // Pauses smoothly when user hovers over the track or is actively dragging
       if (
         track &&
         loopWidth > track.clientWidth &&
@@ -472,7 +473,7 @@ export function Services() {
     }
   }, [])
 
-  /* Drag Controls - Only captures pointer if mouse moved > 6px, preserving clicks */
+  /* Drag Controls */
   const onPointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
     const track = trackRef.current
     if (!track) return
@@ -519,7 +520,6 @@ export function Services() {
   }
 
   const onWheel = (event: ReactWheelEvent<HTMLDivElement>) => {
-    // If the user scrolls horizontally with trackpad or Shift+wheel, scroll marquee smoothly
     if (Math.abs(event.deltaX) > Math.abs(event.deltaY) || event.shiftKey) {
       const delta = event.deltaX !== 0 ? event.deltaX : event.deltaY
       const track = trackRef.current
@@ -529,26 +529,37 @@ export function Services() {
         track.scrollLeft = loopWidth ? ((next % loopWidth) + loopWidth) % loopWidth : next
       }
     }
-    // Normal vertical mouse wheel continues unhindered to smoothly scroll the page
   }
 
   return (
     <section
       aria-labelledby="casos-title"
       id="casos"
-      className="flex min-h-0 flex-col overflow-hidden bg-mist px-6 py-12 text-navy md:px-10 md:py-16"
+      className="flex min-h-0 flex-col overflow-hidden bg-[#0e0f11] px-4 py-20 text-white sm:px-6 md:py-28 lg:px-8 border-b border-white/10"
     >
       <div className="mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col">
-        <header className="mb-6 shrink-0 md:mb-8">
-          <div>
-            <p className="section-kicker mb-1.5">
-              
-            </p>
-            <h2 id="casos-title" className="max-w-3xl font-heading text-3xl sm:text-4xl md:text-5xl leading-tight tracking-[-.05em]">
-              Negocios que escalaron con creato
-            </h2>
-            <p className="mt-2 max-w-xl text-xs sm:text-sm md:text-base leading-relaxed text-orange">
-              Proyectos reales en las cinco áreas: del diseño de un local a un sistema de gestión.
+        {/* Editorial Section Header */}
+        <header className="mb-10 shrink-0 md:mb-14">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/12">
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="font-mono text-xs font-bold tracking-widest text-orange uppercase">
+                  // 02 REGISTRO DE EJECUCIÓN
+                </span>
+                <span className="rotate-[-2deg] rounded bg-orange/20 px-2 py-0.5 font-mono text-[10px] font-bold text-orange uppercase">
+                  CASOS REALES
+                </span>
+              </div>
+              <h2
+                id="casos-title"
+                className="font-heading text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white uppercase leading-[0.95]"
+              >
+                PROYECTOS ENTREGADOS. SIN DILACIONES.
+              </h2>
+            </div>
+
+            <p className="max-w-md text-sm sm:text-base leading-relaxed text-white/70">
+              Transformación arquitectónica, plataformas web ARCA, arquitectura efímera y packaging industrial materializados con estándares de excelencia.
             </p>
           </div>
         </header>
@@ -587,15 +598,24 @@ export function Services() {
         <MobileServices onSelect={(item) => setSelectedCase(item)} />
 
         {/* Bottom Banner */}
-        <div className="mt-8 flex shrink-0 items-center justify-between gap-4 border-t border-navy/15 pt-4">
-          <p className="font-heading text-base md:text-lg">¿Armaste algo parecido?</p>
+        <div className="mt-12 flex flex-col sm:flex-row shrink-0 items-start sm:items-center justify-between gap-4 border-t border-white/12 pt-6">
+          <div>
+            <p className="font-heading text-lg sm:text-xl font-bold uppercase tracking-tight text-white">
+              ¿Tenés un proyecto para tu empresa?
+            </p>
+            <p className="font-mono text-xs text-white/60 mt-0.5">
+              Evaluamos la factibilidad técnica y te enviamos un presupuesto unificado en 24 horas.
+            </p>
+          </div>
+
           <a
-            className="rounded-full bg-orange px-4 py-2.5 text-xs sm:text-sm font-semibold text-white transition hover:bg-orange/85"
+            className="inline-flex items-center gap-2 rounded-xl bg-orange px-5 py-3 font-heading text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-md transition-transform duration-160 hover:bg-[#ff7a45] active:scale-95 shrink-0"
             href={`${WHATSAPP_URL.split("?text=")[0]}?text=${encodeURIComponent(
-              "Hola, quiero contarte sobre mi proyecto."
+              "Hola, quiero contarles sobre mi proyecto."
             )}`}
           >
-            Contanos tu proyecto
+            <span>Contanos tu proyecto</span>
+            <ArrowUpRight className="size-4" />
           </a>
         </div>
       </div>

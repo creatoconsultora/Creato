@@ -1,287 +1,266 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
-import Image from "next/image"
-import { ArrowRight, ChevronRight } from "lucide-react"
+import { useState, useRef } from "react"
+import { ArrowUpRight, CheckCircle2, ChevronRight, Layers, ShieldCheck, Sparkles } from "lucide-react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { PILLARS, type Pillar } from "@/lib/content"
-import { MOTION } from "@/lib/animation"
+import { PILLARS, WHATSAPP_URL, type Pillar } from "@/lib/content"
 import { cn } from "@/lib/utils"
-import { PillarCard, PillarModal } from "./pillar-card"
 import { ImageWithSkeleton } from "@/components/ui/image-with-skeleton"
+import { PillarModal } from "./pillar-card"
 
 export function Pillars() {
-  const [activeMobileIndex, setActiveMobileIndex] = useState(0)
-  const [mobileModalPillar, setMobileModalPillar] = useState<Pillar | null>(null)
-  const [isPaused, setIsPaused] = useState(false)
-  const pauseTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const touchStartRef = useRef<number | null>(null)
-  const chipRefs = useRef<(HTMLButtonElement | null)[]>([])
-  const chipsScrollRef = useRef<HTMLDivElement>(null)
-
-  const activePillar = PILLARS[activeMobileIndex]
-
-  const [isInView, setIsInView] = useState(false)
+  const [activePillarIndex, setActivePillarIndex] = useState(0)
+  const [selectedModalPillar, setSelectedModalPillar] = useState<Pillar | null>(null)
   const sectionRef = useRef<HTMLElement>(null)
 
+  const activePillar = PILLARS[activePillarIndex]
+
+  // Entrance animation with GSAP
   useGSAP(() => {
-    if (window.innerWidth < 1024 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
     gsap.registerPlugin(ScrollTrigger)
-    gsap.from("[data-pillar-reveal]", {
-      y: 44,
+
+    gsap.from("[data-pillar-editorial]", {
+      y: 35,
       opacity: 0,
-      stagger: MOTION.stagger,
-      ease: MOTION.ease.out,
-      scrollTrigger: { trigger: sectionRef.current, start: "top 65%" },
+      stagger: 0.08,
+      duration: 0.75,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 75%",
+      },
     })
   }, { scope: sectionRef })
 
-  const pauseAutoPlayTemporarily = () => {
-    setIsPaused(true)
-    if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current)
-    pauseTimeoutRef.current = setTimeout(() => {
-      setIsPaused(false)
-    }, 7000)
-  }
-
-  // Observe if the section is visible in the viewport before auto-advancing
-  useEffect(() => {
-    const section = sectionRef.current
-    if (!section) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsInView(entry.isIntersecting)
-      },
-      { threshold: 0.2 }
-    )
-    observer.observe(section)
-    return () => observer.disconnect()
-  }, [])
-
-  // Auto-advance every 4.5s on mobile ONLY when section is visible and user is not interacting
-  useEffect(() => {
-    if (isPaused || mobileModalPillar || !isInView) return
-    const timer = setInterval(() => {
-      setActiveMobileIndex((prev) => (prev + 1) % PILLARS.length)
-    }, 4500)
-    return () => clearInterval(timer)
-  }, [isPaused, mobileModalPillar, isInView])
-
-  // Scroll ONLY the chips container horizontally — NEVER scroll the entire page/window
-  useEffect(() => {
-    const container = chipsScrollRef.current
-    const chip = chipRefs.current[activeMobileIndex]
-    if (container && chip) {
-      const scrollTarget = chip.offsetLeft - (container.clientWidth - chip.clientWidth) / 2
-      container.scrollTo({
-        left: Math.max(0, scrollTarget),
-        behavior: "smooth",
-      })
-    }
-  }, [activeMobileIndex])
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    pauseAutoPlayTemporarily()
-    touchStartRef.current = e.touches[0].clientX
-  }
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartRef.current === null) return
-    const diff = touchStartRef.current - e.changedTouches[0].clientX
-    if (Math.abs(diff) > 40) {
-      if (diff > 0) {
-        // Swipe left -> next area
-        setActiveMobileIndex((prev) => (prev + 1) % PILLARS.length)
-      } else {
-        // Swipe right -> previous area
-        setActiveMobileIndex((prev) => (prev - 1 + PILLARS.length) % PILLARS.length)
-      }
-    }
-    touchStartRef.current = null
-  }
-
   return (
-    <section ref={sectionRef} aria-labelledby="pilares-title" id="pilares" className="relative overflow-hidden bg-white px-6 py-20 md:px-10 md:py-28">
-      <div className="mx-auto flex h-full max-w-7xl flex-col">
-        <header className="shrink-0">
-          <h2 id="pilares-title" className="mt-3 max-w-3xl text-4xl leading-none text-navy md:text-6xl">
-            Evolucionamos cada área de tu negocio
-          </h2>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-orange short:text-sm">
-            Un equipo preparado para acompañar cada desafío de tu negocio.
+    <section
+      ref={sectionRef}
+      id="pilares"
+      aria-labelledby="pilares-title"
+      className="relative overflow-hidden bg-[#faf9f6] px-4 py-20 sm:px-6 md:py-28 lg:px-8 border-b border-[#dfddd7]"
+    >
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header: Editorial & Assertive */}
+        <div data-pillar-editorial className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-black/10">
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="font-mono text-xs font-bold tracking-widest text-orange uppercase">
+                // 01 DOSSIER DE SERVICIOS
+              </span>
+              <span className="rotate-[-2deg] rounded bg-black/5 px-2 py-0.5 font-mono text-[10px] font-bold text-black/70 uppercase">
+                COBERTURA TOTAL
+              </span>
+            </div>
+            <h2
+              id="pilares-title"
+              className="font-heading text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#0e0f11] uppercase leading-[0.95] text-balance"
+            >
+              CINCO DISCIPLINAS. UN SOLO INTERLOCUTOR.
+            </h2>
+          </div>
+
+          <p className="max-w-md text-sm sm:text-base leading-relaxed text-[#5a5c62] font-normal">
+            Eliminamos la fricción de coordinar cinco proveedores diferentes. Desde la dirección de obra de un nuevo punto de venta hasta la arquitectura del software comercial.
           </p>
-        </header>
-
-        {/* DESKTOP ACCORDION (lg and up) */}
-        <ul className="mt-8 hidden h-[34rem] shrink-0 gap-3 overflow-hidden lg:flex lg:flex-row">
-          {PILLARS.map((pillar) => (
-            <li
-              key={pillar.id}
-              data-pillar-reveal
-              className="pillar-item h-full min-h-0 min-w-0 flex-1 transition-[flex] duration-500 ease-out"
-            >
-              <PillarCard pillar={pillar} className="h-full min-h-0" />
-            </li>
-          ))}
-        </ul>
-
-        {/* MOBILE & TABLET ADAPTIVE INTERFACE (< lg) */}
-        <div className="mt-6 flex flex-col gap-4 lg:hidden">
-          {/* Horizontal Chips Navigation with visual scroll cue */}
-          <div className="relative">
-            <div
-              ref={chipsScrollRef}
-              className="flex gap-2 overflow-x-auto pb-1 pr-12 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-            >
-              {PILLARS.map((pillar, idx) => {
-                const active = idx === activeMobileIndex
-                const shortName =
-                  pillar.id === "arquitectura"
-                    ? "Arquitectura"
-                    : pillar.id === "eventos"
-                    ? "Eventos"
-                    : pillar.id === "identidad"
-                    ? "Identidad"
-                    : pillar.id === "tecnologia"
-                    ? "Tecnología"
-                    : "Gestión"
-
-                return (
-                  <button
-                    key={pillar.id}
-                    ref={(el) => {
-                      chipRefs.current[idx] = el
-                    }}
-                    type="button"
-                    onClick={() => {
-                      pauseAutoPlayTemporarily()
-                      setActiveMobileIndex(idx)
-                    }}
-                    className={cn(
-                      "flex shrink-0 items-center gap-1.5 rounded-full px-3.5 py-2 text-xs font-semibold transition-all duration-300 active:scale-95",
-                      active
-                        ? "bg-orange text-white shadow-md shadow-orange/25"
-                        : "border border-navy/15 bg-navy/5 text-navy/75 hover:bg-navy/10"
-                    )}
-                  >
-                    <span className={cn("font-mono text-[10px]", active ? "text-white/80" : "text-orange")}>
-                      {pillar.number}
-                    </span>
-                    <span>{shortName}</span>
-                  </button>
-                )
-              })}
-            </div>
-
-            {/* Right edge gradient & cue indicator showing there are more items */}
-            <div className="pointer-events-none absolute right-0 top-0 bottom-1 flex items-center justify-end w-12 bg-gradient-to-l from-white via-white/80 to-transparent pr-1">
-              <ChevronRight className="size-4 text-orange" />
-            </div>
-          </div>
-
-          {/* Active Area Touch Card */}
-          <div
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-            onClick={() => {
-              pauseAutoPlayTemporarily()
-              setMobileModalPillar(activePillar)
-            }}
-            className="group relative flex min-h-[420px] cursor-pointer flex-col justify-end overflow-hidden rounded-2xl bg-navy p-6 text-white shadow-xl transition-all"
-          >
-            <ImageWithSkeleton
-              key={activePillar.image}
-              src={activePillar.image}
-              alt={activePillar.alt}
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-              skeletonClassName="bg-white/10"
-            />
-            <div
-              className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/25 pointer-events-none"
-              aria-hidden="true"
-            />
-
-            <div className="relative flex flex-col justify-end">
-              {/* Counter badge and touch cue */}
-              <div className="mb-auto flex items-center justify-between pb-6">
-                <span className="rounded-full bg-white/20 px-2.5 py-1 font-mono text-xs font-semibold text-white backdrop-blur-sm">
-                  {activePillar.number} / 05
-                </span>
-                <span className="text-[11px] font-medium text-white/70">
-                  Deslizá o tocá para ver más
-                </span>
-              </div>
-
-              {/* Title & headline */}
-              <h3 className="font-heading text-2xl font-semibold leading-tight text-white">
-                {activePillar.name}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/90">
-                {activePillar.headline}
-              </p>
-
-              {/* Services list preview */}
-              <ul className="mt-3 flex flex-col gap-1.5 border-t border-white/15 pt-3">
-                {activePillar.services.map((service) => (
-                  <li key={service} className="flex items-start gap-2 text-xs text-white/85">
-                    <span
-                      className="mt-1.5 size-1.5 shrink-0 rounded-full bg-orange"
-                      aria-hidden="true"
-                    />
-                    <span className="line-clamp-2">{service}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Call-to-action button */}
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  pauseAutoPlayTemporarily()
-                  setMobileModalPillar(activePillar)
-                }}
-                className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-orange px-4 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-orange/90 active:scale-[0.98]"
-              >
-                <span>Ver servicios y detalles</span>
-                <ArrowRight className="size-4" />
-              </button>
-            </div>
-          </div>
-
-          {/* Navigation Dots Indicator */}
-          <div className="flex items-center justify-center gap-2 pt-1">
-            {PILLARS.map((p, idx) => (
-              <button
-                key={p.id}
-                type="button"
-                onClick={() => {
-                  pauseAutoPlayTemporarily()
-                  setActiveMobileIndex(idx)
-                }}
-                aria-label={`Ver ${p.name}`}
-                className={cn(
-                  "h-1.5 rounded-full transition-all duration-300",
-                  idx === activeMobileIndex ? "w-6 bg-orange" : "w-1.5 bg-navy/20"
-                )}
-              />
-            ))}
-          </div>
         </div>
 
-        {/* Modal Dialog for Mobile */}
-        {mobileModalPillar && (
-          <PillarModal
-            pillar={mobileModalPillar}
-            open={!!mobileModalPillar}
-            onClose={() => setMobileModalPillar(null)}
-          />
-        )}
+        {/* 70/30 Editorial Interactive Dossier Grid */}
+        <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12 items-start">
+          
+          {/* Left Column (70%): Interactive Editorial Dossier List */}
+          <div data-pillar-editorial className="lg:col-span-7 xl:col-span-8 flex flex-col">
+            {PILLARS.map((pillar, index) => {
+              const isActive = index === activePillarIndex
+              return (
+                <div
+                  key={pillar.id}
+                  onClick={() => setActivePillarIndex(index)}
+                  onMouseEnter={() => setActivePillarIndex(index)}
+                  className={cn(
+                    "group relative cursor-pointer border-b border-black/10 transition-colors duration-200 py-6 sm:py-7 select-none",
+                    isActive ? "bg-black/[0.02]" : "hover:bg-black/[0.01]"
+                  )}
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    {/* Number and Title */}
+                    <div className="flex items-baseline gap-4 sm:gap-6 min-w-0">
+                      <span
+                        className={cn(
+                          "font-mono text-xl sm:text-2xl font-black transition-colors duration-200 shrink-0",
+                          isActive ? "text-orange" : "text-black/30 group-hover:text-black/60"
+                        )}
+                      >
+                        {pillar.number}
+                      </span>
+
+                      <div className="min-w-0">
+                        <h3
+                          className={cn(
+                            "font-heading text-2xl sm:text-3xl font-black tracking-tight uppercase leading-tight transition-colors duration-200",
+                            isActive ? "text-[#0e0f11]" : "text-black/50 group-hover:text-black/80"
+                          )}
+                        >
+                          {pillar.name}
+                        </h3>
+
+                        {/* Collapsible details visible when active or on mobile */}
+                        <div
+                          className={cn(
+                            "grid transition-[grid-template-rows,opacity,margin] duration-300 ease-out",
+                            isActive
+                              ? "grid-rows-[1fr] opacity-100 mt-3 sm:mt-4"
+                              : "grid-rows-[0fr] opacity-0"
+                          )}
+                        >
+                          <div className="overflow-hidden">
+                            <p className="text-sm sm:text-base font-medium leading-relaxed text-[#0e0f11]/90 max-w-xl">
+                              {pillar.headline}
+                            </p>
+
+                            {/* Tangible deliverables tags */}
+                            <div className="mt-3 flex flex-wrap gap-2">
+                              {pillar.services.map((service) => (
+                                <span
+                                  key={service}
+                                  className="inline-flex items-center gap-1.5 rounded-md border border-black/10 bg-white px-2.5 py-1 font-mono text-[11px] font-semibold text-black/80 shadow-xs"
+                                >
+                                  <span className="size-1 rounded-full bg-orange" />
+                                  {service}
+                                </span>
+                              ))}
+                            </div>
+
+                            {/* Direct modal trigger */}
+                            <div className="mt-4 flex items-center gap-3">
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation()
+                                  setSelectedModalPillar(pillar)
+                                }}
+                                className="inline-flex items-center gap-1.5 font-heading text-xs font-bold text-orange uppercase tracking-wider hover:underline active:scale-95"
+                              >
+                                <span>Ver alcance técnico completo</span>
+                                <ChevronRight className="size-3.5" />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Arrow / Active Indicator */}
+                    <div className="shrink-0 pt-1">
+                      <span
+                        className={cn(
+                          "grid size-8 place-items-center rounded-full border transition-all duration-200",
+                          isActive
+                            ? "border-orange bg-orange text-white rotate-45"
+                            : "border-black/15 text-black/40 group-hover:border-black/30 group-hover:text-black/70"
+                        )}
+                      >
+                        <ArrowUpRight className="size-4" />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Right Column (30%): Dynamic Photographic Anchor & Dossier Preview */}
+          <div data-pillar-editorial className="lg:col-span-5 xl:col-span-4 sticky top-28">
+            <div className="relative overflow-hidden rounded-2xl border border-black/15 bg-[#0e0f11] text-white shadow-xl">
+              
+              {/* Media Preview Box */}
+              <div className="relative aspect-4/3 w-full overflow-hidden bg-[#16181d]">
+                <ImageWithSkeleton
+                  key={activePillar.image}
+                  src={activePillar.image}
+                  alt={activePillar.alt}
+                  fill
+                  sizes="(min-width: 1024px) 35vw, 100vw"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  skeletonClassName="bg-white/10"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0e0f11] via-transparent to-transparent opacity-80" />
+
+                {/* Physical Rotated Badge */}
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="rotate-[-4deg] inline-block rounded bg-orange px-2.5 py-1 font-mono text-[10px] font-black uppercase text-white shadow-md">
+                    ENTREGA LLAVE EN MANO
+                  </span>
+                </div>
+
+                <div className="absolute bottom-4 left-4 right-4 z-10">
+                  <span className="font-mono text-xs font-bold tracking-widest text-orange uppercase">
+                    ÁREA {activePillar.number} // 05
+                  </span>
+                  <p className="font-heading text-lg font-bold text-white leading-tight mt-0.5">
+                    {activePillar.name}
+                  </p>
+                </div>
+              </div>
+
+              {/* Dossier Specifications Card Body */}
+              <div className="p-6 space-y-4">
+                <p className="text-xs leading-relaxed text-white/75 line-clamp-3">
+                  {activePillar.description}
+                </p>
+
+                {/* Hard Truth / Commercial Assurance */}
+                <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 space-y-2">
+                  <div className="flex items-center gap-2 font-mono text-[11px] text-white/90">
+                    <CheckCircle2 className="size-3.5 text-orange shrink-0" />
+                    <span>Presupuesto global cerrado</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-mono text-[11px] text-white/90">
+                    <CheckCircle2 className="size-3.5 text-orange shrink-0" />
+                    <span>Director de proyecto asignado</span>
+                  </div>
+                  <div className="flex items-center gap-2 font-mono text-[11px] text-white/90">
+                    <CheckCircle2 className="size-3.5 text-orange shrink-0" />
+                    <span>Cronograma y plazos garantizados</span>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-2.5 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedModalPillar(activePillar)}
+                    className="flex-1 rounded-xl bg-orange py-2.5 px-4 font-heading text-xs font-bold uppercase tracking-wider text-white shadow-md transition-transform duration-160 hover:bg-[#ff7a45] active:scale-95"
+                  >
+                    Detalle Técnico
+                  </button>
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center rounded-xl border border-white/20 bg-white/5 py-2.5 px-4 font-heading text-xs font-bold uppercase tracking-wider text-white transition hover:bg-white/10 active:scale-95"
+                  >
+                    Consultar
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
       </div>
+
+      {/* Full Technical Modal Dialog */}
+      {selectedModalPillar && (
+        <PillarModal
+          pillar={selectedModalPillar}
+          open={!!selectedModalPillar}
+          onClose={() => setSelectedModalPillar(null)}
+        />
+      )}
     </section>
   )
 }
