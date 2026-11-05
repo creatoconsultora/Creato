@@ -50,7 +50,7 @@ export default function TerminosPage() {
         <div className="mt-8 space-y-8 text-justify text-sm leading-relaxed text-[#242424]">
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Cláusula Primera — Ámbito de Aplicación y Aceptación
+              Cláusula Primera · Ámbito de Aplicación y Aceptación
             </h2>
             <p>
               Los presentes Términos y Condiciones regulan el acceso, navegación y uso del sitio web <code>creato.com.ar</code> (en adelante, el &ldquo;Sitio Web&rdquo;), administrado y operado por <strong>creato</strong> (en adelante, el &ldquo;Titular&rdquo;).
@@ -62,10 +62,10 @@ export default function TerminosPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Cláusula Segunda — Objeto y Naturaleza del Sitio
+              Cláusula Segunda · Objeto y Naturaleza del Sitio
             </h2>
             <p>
-              El Sitio Web opera como una plataforma de carácter institucional y comercial orientada a la difusión de la propuesta integral de servicios de consultoría, arquitectura comercial, diseño de identidad, producción técnica de eventos, desarrollo tecnológico y gestión operativa provista por el Titular.
+              El Sitio Web opera como una plataforma de carácter institucional y comercial orientada a la difusión de la propuesta unificada de servicios de consultoría, arquitectura comercial, diseño de identidad, producción técnica de eventos, desarrollo tecnológico y gestión operativa provista por el Titular.
             </p>
             <p>
               El Sitio Web no constituye una plataforma de contratación electrónica instantánea, ni dispone de pasarelas de pago, suscripciones de cobro recurrente automático ni carros de compra digital.
@@ -74,7 +74,7 @@ export default function TerminosPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Cláusula Tercera — Carácter No Vinculante y Perfeccionamiento Contractual
+              Cláusula Tercera · Carácter No Vinculante y Perfeccionamiento Contractual
             </h2>
             <p>
               <strong>3.1. Ausencia de oferta vinculante:</strong> De conformidad con el artículo 972 del Código Civil y Comercial de la Nación, la información, descripción de pilares, casos de éxito, metodologías o referencias expuestas en el Sitio Web poseen naturaleza meramente informativa y de invitación a entablar tratativas preliminares, no revistiendo carácter de oferta contractual irrevocable ni vinculante.
@@ -89,7 +89,7 @@ export default function TerminosPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Cláusula Cuarta — Propiedad Intelectual e Industrial
+              Cláusula Cuarta · Propiedad Intelectual e Industrial
             </h2>
             <p>
               El código fuente, arquitectura del software, logotipos, isotipos, marcas comerciales, nombres de dominio, maquetaciones gráficas, fotografías, renders, manuales de procedimiento, textos descriptivos y material audiovisual expuestos en el Sitio Web constituyen creaciones amparadas por la <strong>Ley Nacional N° 11.723 de Propiedad Intelectual</strong>, la Ley N° 22.362 de Marcas y Designaciones, y la normativa complementaria de la República Argentina.
@@ -101,7 +101,7 @@ export default function TerminosPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Cláusula Quinta — Obligaciones y Conducta del Usuario
+              Cláusula Quinta · Obligaciones y Conducta del Usuario
             </h2>
             <p>
               El Usuario se compromete a hacer un uso lícito del Sitio Web y sus canales de contacto asociados, absteniéndose de:
@@ -115,7 +115,7 @@ export default function TerminosPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Cláusula Sexta — Exclusión de Garantías y Responsabilidad Técnica
+              Cláusula Sexta · Exclusión de Garantías y Responsabilidad Técnica
             </h2>
             <p>
               El Titular no asume responsabilidad alguna por:
@@ -128,7 +128,7 @@ export default function TerminosPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Cláusula Séptima — Enlaces a Servicios de Terceros
+              Cláusula Séptima · Enlaces a Servicios de Terceros
             </h2>
             <p>
               El Sitio Web incorpora enlaces directos de comunicación mediante servicios provistos por terceros (WhatsApp / Meta Platforms Inc., Calendly LLC, plataformas de redes sociales). El Titular no ejerce auditoría ni garantiza la continua disponibilidad ni la seguridad intrínseca de dichas aplicaciones de terceros, rigiéndose la relación entre el Usuario y tales plataformas por sus respectivas condiciones legales.
@@ -137,7 +137,7 @@ export default function TerminosPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Cláusula Octava — Modificaciones de los Términos
+              Cláusula Octava · Modificaciones de los Términos
             </h2>
             <p>
               El Titular se reserva el derecho de modificar o sustituir en cualquier momento los presentes Términos y Condiciones, los cuales resultarán exigibles a partir de su publicación en el Sitio Web. El uso continuado del Sitio Web con posterioridad a tales cambios constituirá plena aceptación de los nuevos términos.
@@ -146,7 +146,7 @@ export default function TerminosPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Cláusula Novena — Nulidad Parcial y Subsistencia
+              Cláusula Novena · Nulidad Parcial y Subsistencia
             </h2>
             <p>
               Si alguna cláusula de los presentes Términos fuera declarada nula o ineficaz por autoridad jurisdiccional competente, tal nulidad no afectará la validez de las restantes estipulaciones, las cuales mantendrán plena fuerza vinculante.
@@ -155,7 +155,7 @@ export default function TerminosPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Cláusula Décima — Ley Aplicable y Jurisdicción
+              Cláusula Décima · Ley Aplicable y Jurisdicción
             </h2>
             <p>
               Los presentes Términos y Condiciones se regirán e interpretarán de conformidad con las leyes vigentes de la <strong>República Argentina</strong>.
@@ -167,7 +167,7 @@ export default function TerminosPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Cláusula Undécima — Vía Formal de Notificaciones
+              Cláusula Undécima · Vía Formal de Notificaciones
             </h2>
             <p>
               Para todas las comunicaciones o requerimientos legales vinculados al Sitio Web, el Titular constituye como domicilio electrónico la cuenta de correo: <strong>{CONTACT_EMAIL}</strong> y la línea de contacto: <strong>{CONTACT_DETAILS.phoneLabel}</strong>.

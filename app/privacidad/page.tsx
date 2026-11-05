@@ -50,7 +50,7 @@ export default function PrivacidadPage() {
         <div className="mt-8 space-y-8 text-justify text-sm leading-relaxed text-[#242424]">
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Artículo 1 — Marco Regulatorio y Responsable
+              Artículo 1 · Marco Regulatorio y Responsable
             </h2>
             <p>
               El presente documento establece los términos bajo los cuales <strong>creato</strong> (en adelante, el &ldquo;Responsable&rdquo; o &ldquo;creato&rdquo;), a través del sitio web <code>creato.com.ar</code> (el &ldquo;Sitio Web&rdquo;), efectúa el tratamiento de datos personales en el marco de sus actividades institucionales y de consultoría comercial.
@@ -62,7 +62,7 @@ export default function PrivacidadPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Artículo 2 — Naturaleza de la Plataforma y Datos Tratados
+              Artículo 2 · Naturaleza de la Plataforma y Datos Tratados
             </h2>
             <p>
               El Sitio Web posee fines estrictamente informativos y de difusión comercial. El Responsable hace constar expresamente que:
@@ -77,10 +77,10 @@ export default function PrivacidadPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Artículo 3 — Finalidad y Prohibición de Cesión
+              Artículo 3 · Finalidad y Prohibición de Cesión
             </h2>
             <p>
-              Los datos facilitados serán utilizados exclusivamente para atender las solicitudes de contacto, formular cotizaciones o propuestas comerciales a medida, y coordinar la ejecución de los servicios encomendados.
+              Los datos facilitados serán utilizados exclusivamente para atender las solicitudes de contacto, formular cotizaciones o propuestas comerciales detalladas, y coordinar la ejecución de los servicios encomendados.
             </p>
             <p>
               El Responsable no vende, alquila, comercializa ni cede bases de datos personales a terceros, con excepción de aquellos requerimientos expresos emanados de autoridad judicial o administrativa competente en virtud de ley imperativa.
@@ -89,7 +89,7 @@ export default function PrivacidadPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Artículo 4 — Información Técnica de Navegación
+              Artículo 4 · Información Técnica de Navegación
             </h2>
             <p>
               El Sitio Web puede hacer uso de herramientas de analítica y medición técnica de rendimiento (incluyendo Vercel Web Analytics) orientadas a relevar tráfico agregado, tipo de navegador, sistema operativo y país de origen de la conexión. Dicha información se procesa en forma agregada y anónima, con el fin de optimizar la disponibilidad y desempeño del servidor, sin individualización de usuarios ni aplicación de perfiles publicitarios invasivos.
@@ -98,7 +98,7 @@ export default function PrivacidadPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Artículo 5 — Plataformas y Enlaces de Terceros
+              Artículo 5 · Plataformas y Enlaces de Terceros
             </h2>
             <p>
               El Sitio Web pone a disposición enlaces de redireccionamiento hacia plataformas de terceros (tales como WhatsApp, Calendly, LinkedIn o Instagram). Al acceder a tales plataformas, el tratamiento de los datos que el Usuario proporcione en ellas quedará sujeto de pleno derecho a los términos y políticas de privacidad particulares de cada uno de dichos proveedores, quedando el Responsable exento de toda injerencia o responsabilidad sobre el tratamiento que aquéllos realicen.
@@ -107,7 +107,7 @@ export default function PrivacidadPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Artículo 6 — Derechos de Acceso, Rectificación, Actualización y Supresión (ARCO)
+              Artículo 6 · Derechos de Acceso, Rectificación, Actualización y Supresión (ARCO)
             </h2>
             <p>
               En cumplimiento de los artículos 14, 15 y 16 de la Ley N° 25.326, el titular de los datos personales tiene derecho a solicitar y obtener información de sus datos personales incluidos en los registros o bancos de datos del Responsable, así como a exigir la rectificación, actualización o supresión de los mismos en cualquier momento y en forma enteramente gratuita.
@@ -123,7 +123,7 @@ export default function PrivacidadPage() {
 
           <section className="space-y-2 border-y border-[#dfddd7] py-4 bg-white px-4">
             <h2 className="font-heading text-xs font-bold uppercase tracking-wider text-[#171717]">
-              Artículo 7 — Cláusula Legal Informativa (AAIP)
+              Artículo 7 · Cláusula Legal Informativa (AAIP)
             </h2>
             <p className="text-xs italic leading-relaxed text-[#242424]">
               &ldquo;La AGENCIA DE ACCESO A LA INFORMACIÓN PÚBLICA, en su carácter de Órgano de Control de la Ley N° 25.326, tiene la atribución de atender las denuncias y reclamos que interpongan quienes resulten afectados en sus derechos por incumplimiento de las normas vigentes en materia de protección de datos personales.&rdquo;
@@ -135,7 +135,7 @@ export default function PrivacidadPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Artículo 8 — Deber de Confidencialidad y Seguridad
+              Artículo 8 · Deber de Confidencialidad y Seguridad
             </h2>
             <p>
               El Responsable adopta las medidas técnicas, organizativas y de procedimiento exigidas por el artículo 9 de la Ley N° 25.326 para garantizar la seguridad de los datos personales y evitar su alteración, pérdida o tratamiento no autorizado. El deber de confidencialidad subsistirá aun después de finalizada la relación contractual o comercial con el Usuario.
@@ -144,7 +144,7 @@ export default function PrivacidadPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Artículo 9 — Actualizaciones
+              Artículo 9 · Actualizaciones
             </h2>
             <p>
               El Responsable se reserva el derecho de modificar la presente Política de Privacidad a los fines de adaptarla a reformas normativas o jurisprudenciales que pudieran sobrevenir. La versión vigente será siempre la publicada en este documento dentro del Sitio Web.
@@ -153,7 +153,7 @@ export default function PrivacidadPage() {
 
           <section className="space-y-2">
             <h2 className="font-heading text-base font-bold uppercase tracking-wide text-[#171717]">
-              Artículo 10 — Canal Institucional de Notificaciones
+              Artículo 10 · Canal Institucional de Notificaciones
             </h2>
             <p>
               A todos los efectos derivados de la presente política, se fija como canal de contacto formal el correo electrónico: <strong>{CONTACT_EMAIL}</strong> y la línea de atención: <strong>{CONTACT_DETAILS.phoneLabel}</strong>.

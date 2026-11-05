@@ -102,7 +102,7 @@ export function Process() {
         <header className="grid gap-5 border-b border-navy/15 pb-8 lg:grid-cols-[.85fr_1.15fr] lg:items-end">
           <div>
             <h2 id="proceso-title" className="mt-3 text-4xl leading-none text-navy md:text-6xl">
-              Nuestra metodología
+              Metodología de trabajo
             </h2>
           </div>
         </header>
@@ -172,14 +172,14 @@ export function Process() {
 
         <div className="mt-16 flex flex-col gap-5 border-t border-navy/15 pt-7 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="font-heading text-xl text-navy">¿Arrancamos con el paso 1?</p>
-            <p className="mt-1 text-sm text-muted-foreground">Analizamos tu caso sin cargo y te presentamos una propuesta global a medida.</p>
+            <p className="font-heading text-xl text-navy">¿Iniciamos con el primer paso?</p>
+            <p className="mt-1 text-sm text-muted-foreground">Relevamos tus requerimientos y presentamos una propuesta económica unificada.</p>
           </div>
           <a
             href="#contacto"
             className="group inline-flex w-fit items-center gap-3 rounded-full bg-navy px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-orange"
           >
-            <span>Hablemos de tu caso</span>
+            <span>Solicitar presupuesto</span>
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
           </a>
         </div>

@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import Image from "next/image"
 import { ArrowRight, ChevronRight } from "lucide-react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
@@ -69,7 +68,7 @@ export function Pillars() {
     return () => clearInterval(timer)
   }, [isPaused, mobileModalPillar, isInView])
 
-  // Scroll ONLY the chips container horizontally — NEVER scroll the entire page/window
+  // Scroll ONLY the chips container horizontally
   useEffect(() => {
     const container = chipsScrollRef.current
     const chip = chipRefs.current[activeMobileIndex]
@@ -92,10 +91,8 @@ export function Pillars() {
     const diff = touchStartRef.current - e.changedTouches[0].clientX
     if (Math.abs(diff) > 40) {
       if (diff > 0) {
-        // Swipe left -> next area
         setActiveMobileIndex((prev) => (prev + 1) % PILLARS.length)
       } else {
-        // Swipe right -> previous area
         setActiveMobileIndex((prev) => (prev - 1 + PILLARS.length) % PILLARS.length)
       }
     }
@@ -107,10 +104,10 @@ export function Pillars() {
       <div className="mx-auto flex h-full max-w-7xl flex-col">
         <header className="shrink-0">
           <h2 id="pilares-title" className="mt-3 max-w-3xl text-4xl leading-none text-navy md:text-6xl">
-            Evolucionamos cada área de tu negocio
+            Áreas de trabajo
           </h2>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-orange short:text-sm">
-            Un equipo preparado para acompañar cada desafío de tu negocio.
+            Coordinación de proyectos en cinco disciplinas comerciales.
           </p>
         </header>
 
@@ -175,7 +172,6 @@ export function Pillars() {
               })}
             </div>
 
-            {/* Right edge gradient & cue indicator showing there are more items */}
             <div className="pointer-events-none absolute right-0 top-0 bottom-1 flex items-center justify-end w-12 bg-gradient-to-l from-white via-white/80 to-transparent pr-1">
               <ChevronRight className="size-4 text-orange" />
             </div>
@@ -206,17 +202,15 @@ export function Pillars() {
             />
 
             <div className="relative flex flex-col justify-end">
-              {/* Counter badge and touch cue */}
               <div className="mb-auto flex items-center justify-between pb-6">
                 <span className="rounded-full bg-white/20 px-2.5 py-1 font-mono text-xs font-semibold text-white backdrop-blur-sm">
                   {activePillar.number} / 05
                 </span>
                 <span className="text-[11px] font-medium text-white/70">
-                  Deslizá o tocá para ver más
+                  Tocá para ver detalle
                 </span>
               </div>
 
-              {/* Title & headline */}
               <h3 className="font-heading text-2xl font-semibold leading-tight text-white">
                 {activePillar.name}
               </h3>
@@ -224,7 +218,6 @@ export function Pillars() {
                 {activePillar.headline}
               </p>
 
-              {/* Services list preview */}
               <ul className="mt-3 flex flex-col gap-1.5 border-t border-white/15 pt-3">
                 {activePillar.services.map((service) => (
                   <li key={service} className="flex items-start gap-2 text-xs text-white/85">
@@ -237,7 +230,6 @@ export function Pillars() {
                 ))}
               </ul>
 
-              {/* Call-to-action button */}
               <button
                 type="button"
                 onClick={(e) => {
@@ -247,7 +239,7 @@ export function Pillars() {
                 }}
                 className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-orange px-4 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-orange/90 active:scale-[0.98]"
               >
-                <span>Ver servicios y detalles</span>
+                <span>Ver detalle</span>
                 <ArrowRight className="size-4" />
               </button>
             </div>
@@ -263,7 +255,7 @@ export function Pillars() {
                   pauseAutoPlayTemporarily()
                   setActiveMobileIndex(idx)
                 }}
-                aria-label={`Ver ${p.name}`}
+                aria-label={`Ver detalle de ${p.name}`}
                 className={cn(
                   "h-1.5 rounded-full transition-all duration-300",
                   idx === activeMobileIndex ? "w-6 bg-orange" : "w-1.5 bg-navy/20"

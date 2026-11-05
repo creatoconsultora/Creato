@@ -69,7 +69,7 @@ export function BudgetCta() {
               Trabajemos juntos
             </h2>
             <p className="mt-5 text-base leading-relaxed text-orange md:text-lg">
-              Contanos los desafíos de tu negocio y te armamos una propuesta global para resolverlos todos.
+              Detallanos tus requerimientos y elaboramos una propuesta unificada para resolverlos.
             </p>
           </div>
           <div className="mt-10 md:mt-14">
@@ -89,7 +89,7 @@ export function BudgetCta() {
                     : "text-navy/70 hover:text-navy"
                 )}
               >
-                El camino tradicional
+                Múltiples proveedores
               </button>
               <button
                 role="tab"
@@ -102,18 +102,18 @@ export function BudgetCta() {
                     : "text-navy/70 hover:text-navy"
                 )}
               >
-                La experiencia creato
+                Con Creato
               </button>
             </div>
             <div className="grid gap-5 md:grid-cols-2">
               <Comparison
-                title="El camino tradicional"
+                title="Múltiples proveedores"
                 items={ON_YOUR_OWN}
                 icon="x"
                 className={tab === "traditional" ? "block" : "hidden md:block"}
               />
               <Comparison
-                title="La experiencia creato"
+                title="Con Creato"
                 items={WITH_US}
                 icon="check"
                 className={tab === "experience" ? "block" : "hidden md:block"}
@@ -132,7 +132,7 @@ export function BudgetCta() {
         <div className="mx-auto flex h-full max-w-7xl flex-col justify-between">
           <div className="mb-16 max-w-3xl border-b border-white/15 pb-10">
             <h2 id="contacto-title" className="mt-3 text-4xl leading-none tracking-[-.065em] md:text-6xl">
-              Hagamos que tu negocio se mueva.
+              Solicitá tu presupuesto
             </h2>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-white/65">
             </p>
@@ -201,12 +201,12 @@ export function BudgetCta() {
               <ul className="mt-4 flex flex-col gap-2.5 text-sm text-white/70">
                 <li>
                   <a href="#casos" className="transition-colors hover:text-orange">
-                    Casos de éxito
+                    Casos de trabajo
                   </a>
                 </li>
                 <li>
                   <a href="#proceso" className="transition-colors hover:text-orange">
-                    Nuestra metodología
+                    Metodología de trabajo
                   </a>
                 </li>
                 <li>
@@ -216,7 +216,7 @@ export function BudgetCta() {
                 </li>
                 <li>
                   <a href="#presupuesto" className="transition-colors hover:text-orange">
-                    Presupuesto integral
+                    Presupuesto unificado
                   </a>
                 </li>
               </ul>
@@ -233,7 +233,7 @@ export function BudgetCta() {
                     rel="noopener noreferrer"
                     className="transition-colors hover:text-orange"
                   >
-                    WhatsApp directo
+                    Contactar por WhatsApp
                   </a>
                 </li>
                 <li>
@@ -243,7 +243,7 @@ export function BudgetCta() {
                     rel="noopener noreferrer"
                     className="transition-colors hover:text-orange"
                   >
-                    Agendar videollamada
+                    Agendar llamada
                   </a>
                 </li>
                 <li>
@@ -352,7 +352,7 @@ function Comparison({
               : "bg-red-500/10 text-red-600"
           )}
         >
-          {isCreato ? "Creato" : "Tradicional"}
+          {isCreato ? "Con Creato" : "Múltiples proveedores"}
         </span>
       </div>
       <ul className="mt-5 flex flex-col gap-2.5 text-sm md:gap-3 md:text-base">
